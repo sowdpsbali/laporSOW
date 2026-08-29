@@ -5,7 +5,7 @@
 const WEB_APP_URL =
     "https://script.google.com/macros/s/AKfycbx4O7NE3dQg4XTbHeamX5aj-QLQ7QYQw4QA_TEG60hlx2aCHoUsPMZhTmPgG1TiLowFOw/exec";
 
-const NOMOR_ADMIN = "6281999486279";
+const NOMOR_ADMIN = "6281246443838";
 
 
 /* =========================================
@@ -185,7 +185,7 @@ document.addEventListener(
                     encodeURIComponent(pesan);
 
                 const waURL =
-                    "https://wa.me/6281999486279" +
+                    "https://wa.me/6281246443838" +
                     "?text=" +
                     encodedMessage;
 
