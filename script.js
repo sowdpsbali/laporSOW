@@ -3,7 +3,7 @@
 ========================================= */
 
 const WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbwXhXbSh3qdURi2wtp3i2UJUNUEpvdmJPhGebJIpIPNK5EXdyV4W8iJ_v8D31ucl_pM/exec";
+    "https://script.google.com/macros/s/AKfycbyoL-EV96pIh4cLZD8th0mHMvK2gJh2pL2YEa6z4gV4bT98YhWNhsePYkEZIdB12yY03g/exec";
 
 const NOMOR_ADMIN = "6281246443838";
 
