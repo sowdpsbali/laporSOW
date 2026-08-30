@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Lapor SOW</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <h1>ADMIN DASHBOARD</h1>
+
+                <p>
+                    Sistem Monitoring Order Lapor SOW
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- STATISTIK -->
+
+        <section class="stats-container">
+
+            <div class="stat-card">
+
+                <span>Total Order</span>
+
+                <h2 id="totalOrder">0</h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>OPEN</span>
+
+                <h2 id="totalOpen">0</h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>PROSES</span>
+
+                <h2 id="totalProses">0</h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>SELESAI</span>
+
+                <h2 id="totalSelesai">0</h2>
+
+            </div>
+
+        </section>
+
+
+        <!-- FILTER -->
+
+        <section class="filter-container">
+
+            <input
+                type="text"
+                id="searchOrder"
+                placeholder="Cari Kode Order...">
+
+            <select id="filterCabang">
+
+                <option value="">
+                    Semua Cabang
+                </option>
+
+            </select>
+
+            <input
+                type="date"
+                id="filterTanggal">
+
+            <button id="resetFilter">
+
+                Reset Filter
+
+            </button>
+
+        </section>
+
+
+        <!-- TABEL ORDER -->
+
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>No</th>
+
+                        <th>Kode Order</th>
+
+                        <th>Nama</th>
+
+                        <th>Cabang</th>
+
+                        <th>Jenis Kendala</th>
+
+                        <th>Tanggal</th>
+
+                        <th>Status</th>
+
+                        <th>Teknisi/SOW</th>
+
+                        <th>Aksi</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="orderTableBody">
+
+                    <tr>
+
+                        <td colspan="9">
+
+                            Belum ada data order
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
