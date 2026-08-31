@@ -2,6 +2,7 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -14,11 +15,15 @@
 
 </head>
 
+
 <body>
 
     <div class="dashboard-container">
 
+
+        <!-- ========================================= -->
         <!-- HEADER -->
+        <!-- ========================================= -->
 
         <header class="dashboard-header">
 
@@ -35,9 +40,13 @@
         </header>
 
 
+
+        <!-- ========================================= -->
         <!-- STATISTIK -->
+        <!-- ========================================= -->
 
         <section class="stats-container">
+
 
             <div class="stat-card">
 
@@ -46,6 +55,7 @@
                 <h2 id="totalOrder">0</h2>
 
             </div>
+
 
 
             <div class="stat-card">
@@ -57,6 +67,7 @@
             </div>
 
 
+
             <div class="stat-card">
 
                 <span>PROSES</span>
@@ -64,6 +75,7 @@
                 <h2 id="totalProses">0</h2>
 
             </div>
+
 
 
             <div class="stat-card">
@@ -74,44 +86,85 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- FILTER -->
+
+        <!-- ========================================= -->
+        <!-- FILTER & PENCARIAN -->
+        <!-- ========================================= -->
 
         <section class="filter-container">
+
+
+            <!-- CARI KODE ORDER -->
 
             <input
                 type="text"
                 id="searchOrder"
                 placeholder="Cari Kode Order...">
 
+
+
+            <!-- FILTER CABANG -->
+
             <select id="filterCabang">
 
                 <option value="">
+
                     Semua Cabang
+
                 </option>
 
             </select>
+
+
+
+            <!-- FILTER TANGGAL -->
 
             <input
                 type="date"
                 id="filterTanggal">
 
-            <button id="resetFilter">
+
+
+            <!-- TOMBOL CARI -->
+
+            <button
+                id="searchButton"
+                type="button">
+
+                🔍 Cari
+
+            </button>
+
+
+
+            <!-- TOMBOL RESET -->
+
+            <button
+                id="resetFilter"
+                type="button">
 
                 Reset Filter
 
             </button>
 
+
         </section>
 
 
+
+        <!-- ========================================= -->
         <!-- TABEL ORDER -->
+        <!-- ========================================= -->
 
         <section class="table-container">
 
+
             <table>
+
 
                 <thead>
 
@@ -140,6 +193,7 @@
                 </thead>
 
 
+
                 <tbody id="orderTableBody">
 
                     <tr>
@@ -154,16 +208,23 @@
 
                 </tbody>
 
+
             </table>
 
+
         </section>
+
 
     </div>
 
 
+
+    <!-- ========================================= -->
     <!-- JAVASCRIPT -->
+    <!-- ========================================= -->
 
     <script src="admin.js"></script>
+
 
 </body>
 
