@@ -21,9 +21,9 @@
     <div class="dashboard-container">
 
 
-        <!-- ========================================= -->
-        <!-- HEADER -->
-        <!-- ========================================= -->
+        <!-- =========================
+             HEADER
+        ========================== -->
 
         <header class="dashboard-header">
 
@@ -41,9 +41,9 @@
 
 
 
-        <!-- ========================================= -->
-        <!-- STATISTIK -->
-        <!-- ========================================= -->
+        <!-- =========================
+             STATISTIK
+        ========================== -->
 
         <section class="stats-container">
 
@@ -91,14 +91,14 @@
 
 
 
-        <!-- ========================================= -->
-        <!-- FILTER & PENCARIAN -->
-        <!-- ========================================= -->
+        <!-- =========================
+             FILTER
+        ========================== -->
 
         <section class="filter-container">
 
 
-            <!-- CARI KODE ORDER -->
+            <!-- CARI KODE -->
 
             <input
                 type="text"
@@ -112,9 +112,7 @@
             <select id="filterCabang">
 
                 <option value="">
-
                     Semua Cabang
-
                 </option>
 
             </select>
@@ -132,8 +130,7 @@
             <!-- TOMBOL CARI -->
 
             <button
-                id="searchButton"
-                type="button">
+                id="searchButton">
 
                 🔍 Cari
 
@@ -141,11 +138,10 @@
 
 
 
-            <!-- TOMBOL RESET -->
+            <!-- RESET FILTER -->
 
             <button
-                id="resetFilter"
-                type="button">
+                id="resetFilter">
 
                 Reset Filter
 
@@ -156,9 +152,9 @@
 
 
 
-        <!-- ========================================= -->
-        <!-- TABEL ORDER -->
-        <!-- ========================================= -->
+        <!-- =========================
+             TABEL ORDER
+        ========================== -->
 
         <section class="table-container">
 
@@ -219,9 +215,392 @@
 
 
 
-    <!-- ========================================= -->
+    <!-- =====================================
+         MODAL DETAIL ORDER
+    ====================================== -->
+
+    <div
+        id="detailModal"
+        class="modal">
+
+
+        <div class="modal-content">
+
+
+            <!-- HEADER MODAL -->
+
+            <div class="modal-header">
+
+
+                <div>
+
+                    <h2>
+                        DETAIL ORDER
+                    </h2>
+
+                    <p>
+                        Informasi lengkap laporan SOW
+                    </p>
+
+                </div>
+
+
+                <!-- TOMBOL TUTUP -->
+
+                <button
+                    id="closeModal"
+                    class="close-modal">
+
+                    ✕
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- BODY MODAL -->
+
+            <div class="modal-body">
+
+
+                <!-- KODE ORDER -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Kode Order
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailKode">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- NAMA -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Nama
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailNama">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- NIP -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        NIP
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailNip">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- CABANG -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Cabang
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailCabang">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- JENIS KENDALA -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Jenis Kendala
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailJenisKendala">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- DESKRIPSI -->
+
+                <div class="detail-item detail-full">
+
+                    <span class="detail-label">
+
+                        Deskripsi Kendala
+
+                    </span>
+
+                    <div
+                        class="detail-description"
+                        id="detailDeskripsi">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- WHATSAPP -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        WhatsApp
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailWhatsapp">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- TANGGAL -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Tanggal
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailTanggal">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- JAM -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Jam
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailJam">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Status
+
+                    </span>
+
+                    <span
+                        class="detail-status"
+                        id="detailStatus">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- TEKNISI -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Teknisi / SOW
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailTeknisi">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- CATATAN PROGRES -->
+
+                <div class="detail-item detail-full">
+
+                    <span class="detail-label">
+
+                        Catatan Progres
+
+                    </span>
+
+                    <div
+                        class="detail-description"
+                        id="detailCatatan">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TANGGAL UPDATE -->
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+
+                        Terakhir Update
+
+                    </span>
+
+                    <span
+                        class="detail-value"
+                        id="detailTanggalUpdate">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- RIWAYAT -->
+
+                <div class="detail-item detail-full">
+
+                    <span class="detail-label">
+
+                        Riwayat Status
+
+                    </span>
+
+                    <div
+                        class="detail-history"
+                        id="detailRiwayat">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- FOOTER MODAL -->
+
+            <div class="modal-footer">
+
+
+                <button
+                    id="closeModalButton"
+                    class="btn-close">
+
+                    Tutup
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
     <!-- JAVASCRIPT -->
-    <!-- ========================================= -->
 
     <script src="admin.js"></script>
 
