@@ -44,7 +44,60 @@ const totalProses =
 
 const totalSelesai =
     document.getElementById("totalSelesai");
+// =====================================================
+// ELEMENT MODAL DETAIL
+// =====================================================
 
+const detailModal =
+    document.getElementById("detailModal");
+
+const closeModal =
+    document.getElementById("closeModal");
+
+const closeModalButton =
+    document.getElementById("closeModalButton");
+
+const detailKode =
+    document.getElementById("detailKode");
+
+const detailNama =
+    document.getElementById("detailNama");
+
+const detailNip =
+    document.getElementById("detailNip");
+
+const detailCabang =
+    document.getElementById("detailCabang");
+
+const detailJenisKendala =
+    document.getElementById("detailJenisKendala");
+
+const detailDeskripsi =
+    document.getElementById("detailDeskripsi");
+
+const detailWhatsapp =
+    document.getElementById("detailWhatsapp");
+
+const detailTanggal =
+    document.getElementById("detailTanggal");
+
+const detailJam =
+    document.getElementById("detailJam");
+
+const detailStatus =
+    document.getElementById("detailStatus");
+
+const detailTeknisi =
+    document.getElementById("detailTeknisi");
+
+const detailCatatan =
+    document.getElementById("detailCatatan");
+
+const detailTanggalUpdate =
+    document.getElementById("detailTanggalUpdate");
+
+const detailRiwayat =
+    document.getElementById("detailRiwayat");
 
 // =====================================================
 // DATA SEMUA ORDER
@@ -658,6 +711,10 @@ resetFilter.addEventListener(
 // FUNGSI LIHAT DETAIL
 // =====================================================
 
+// =====================================================
+// FUNGSI LIHAT DETAIL
+// =====================================================
+
 function lihatDetail(kode) {
 
     const order =
@@ -674,6 +731,10 @@ function lihatDetail(kode) {
         );
 
 
+    // =============================================
+    // JIKA DATA TIDAK DITEMUKAN
+    // =============================================
+
     if (!order) {
 
         alert(
@@ -683,51 +744,153 @@ function lihatDetail(kode) {
         return;
 
     }
+    // =============================================
+    // ISI DATA KE MODAL
+    // =============================================
+    detailKode.textContent =
+    order.kode || "-";
 
 
-    alert(
+    detailNama.textContent =
+        order.nama || "-";
 
-        "DETAIL ORDER\n\n" +
 
-        "Kode Order: " +
-        (order.kode || "-") +
+    detailNip.textContent =
+        order.nip || "-";
 
-        "\n\nNama: " +
-        (order.nama || "-") +
 
-        "\n\nNIP: " +
-        (order.nip || "-") +
+    detailCabang.textContent =
+        order.kode_cabang || "-";
 
-        "\n\nCabang: " +
-        (order.kode_cabang || "-") +
 
-        "\n\nJenis Kendala: " +
-        (order.jenis_kendala || "-") +
+    detailJenisKendala.textContent =
+        order.jenis_kendala || "-";
 
-        "\n\nDeskripsi: " +
-        (order.deskripsi || "-") +
 
-        "\n\nWhatsApp: " +
-        (order.whatsapp || "-") +
+    detailDeskripsi.textContent =
+        order.deskripsi || "-";
 
-        "\n\nTanggal: " +
-        (order.tanggal || "-") +
 
-        "\n\nJam: " +
-        (order.jam || "-") +
+    detailWhatsapp.textContent =
+        order.whatsapp || "-";
 
-        "\n\nStatus: " +
-        (order.status || "-") +
 
-        "\n\nTeknisi/SOW: " +
-        (order.teknisi || "-") +
+    detailTanggal.textContent =
+        order.tanggal || "-";
 
-        "\n\nCatatan Progres: " +
-        (order.catatan_progres || "-")
 
+    detailJam.textContent =
+        order.jam || "-";
+
+
+    detailStatus.textContent =
+        order.status || "OPEN";
+
+
+    detailTeknisi.textContent =
+        order.teknisi || "-";
+
+
+    detailCatatan.textContent =
+        order.catatan_progres || "-";
+
+
+    detailTanggalUpdate.textContent =
+        order.tanggal_update || "-";
+
+
+    detailRiwayat.textContent =
+        order.riwayat_status || "-";
+
+
+    // =============================================
+    // TAMPILKAN MODAL
+    // =============================================
+
+    detailModal.classList.add(
+        "show"
     );
 
 }
+// =====================================================
+// TUTUP MODAL
+// =====================================================
+
+function tutupModal() {
+
+    detailModal.classList.remove(
+        "show"
+    );
+
+}
+
+
+// =====================================================
+// TOMBOL X
+// =====================================================
+
+closeModal.addEventListener(
+    "click",
+    function () {
+
+        tutupModal();
+
+    }
+);
+
+
+// =====================================================
+// TOMBOL TUTUP
+// =====================================================
+
+closeModalButton.addEventListener(
+    "click",
+    function () {
+
+        tutupModal();
+
+    }
+);
+
+
+// =====================================================
+// KLIK AREA LUAR MODAL
+// =====================================================
+
+detailModal.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target === detailModal
+        ) {
+
+            tutupModal();
+
+        }
+
+    }
+);
+
+
+// =====================================================
+// TOMBOL ESC
+// =====================================================
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            tutupModal();
+
+        }
+
+    }
+);
 
 
 // =====================================================
