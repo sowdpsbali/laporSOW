@@ -340,7 +340,12 @@ async function loadOrders() {
         // =============================================
 
         updateStatistics(
-            semuaOrders
+            result.statistik || {
+                total: 0,
+                open: 0,
+                proses: 0,
+                selesai: 0
+            }
         );
 
 
@@ -577,75 +582,30 @@ function renderOrders(orders) {
 // UPDATE STATISTIK
 // =====================================================
 
-function updateStatistics(orders) {
+// =====================================================
+// UPDATE STATISTIK
+// =====================================================
+
+function updateStatistics(statistik) {
 
     // TOTAL ORDER
-
-    const total =
-        orders.length;
-
-
-    // TOTAL OPEN
-
-    const open =
-        orders.filter(
-            function (order) {
-
-                return String(
-                    order.status
-                )
-                    .toUpperCase()
-                    === "OPEN";
-
-            }
-        ).length;
-
-
-    // TOTAL PROSES
-
-    const proses =
-        orders.filter(
-            function (order) {
-
-                return String(
-                    order.status
-                )
-                    .toUpperCase()
-                    === "PROSES";
-
-            }
-        ).length;
-
-
-    // TOTAL SELESAI
-
-    const selesai =
-        orders.filter(
-            function (order) {
-
-                return String(
-                    order.status
-                )
-                    .toUpperCase()
-                    === "SELESAI";
-
-            }
-        ).length;
-
-
-    // TAMPILKAN
-
     totalOrder.textContent =
-        total;
+        statistik.total || 0;
 
+
+    // OPEN
     totalOpen.textContent =
-        open;
+        statistik.open || 0;
 
+
+    // PROSES
     totalProses.textContent =
-        proses;
+        statistik.proses || 0;
 
+
+    // SELESAI
     totalSelesai.textContent =
-        selesai;
+        statistik.selesai || 0;
 
 }
 
