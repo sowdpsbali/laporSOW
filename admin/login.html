@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login Admin - Lapor SOW</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1f5f9,
+                    #e2e8f0
+                );
+
+        }
+
+
+        .login-container {
+
+            width: 100%;
+
+            max-width: 400px;
+
+            padding: 20px;
+
+        }
+
+
+        .login-card {
+
+            background: white;
+
+            padding: 32px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.12
+                );
+
+        }
+
+
+        .login-title {
+
+            text-align: center;
+
+            margin-bottom: 8px;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+        }
+
+
+        .login-subtitle {
+
+            text-align: center;
+
+            color: #64748b;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 18px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+        }
+
+
+        input:focus {
+
+            outline: none;
+
+            border-color: #2563eb;
+
+        }
+
+
+        button {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        button:disabled {
+
+            background: #94a3b8;
+
+            cursor: not-allowed;
+
+        }
+
+
+        #pesanLogin {
+
+            margin-top: 16px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <div class="login-title">
+
+                🔐 LOGIN ADMIN
+
+            </div>
+
+
+            <div class="login-subtitle">
+
+                Sistem Monitoring Lapor SOW
+
+            </div>
+
+
+            <form id="loginForm">
+
+
+                <label for="username">
+
+                    Username
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="username"
+                    autocomplete="username"
+                    required
+                >
+
+
+                <label for="password">
+
+                    Password
+
+                </label>
+
+
+                <input
+                    type="password"
+                    id="password"
+                    autocomplete="current-password"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                    id="loginButton"
+                >
+
+                    LOGIN
+
+                </button>
+
+
+            </form>
+
+
+            <div id="pesanLogin"></div>
+
+        </div>
+
+    </div>
+
+
+<script>
+
+const API_URL =
+    "https://script.google.com/macros/s/AKfycbyZAxvr-Ha8fYcA3sEb7Wrd_RVoeEDVtpp7tyzCIkRnHnTtCBkrmvgaOmTnVpZlsEZzhw/exec";
+
+
+const loginForm =
+    document.getElementById(
+        "loginForm"
+    );
+
+
+const usernameInput =
+    document.getElementById(
+        "username"
+    );
+
+
+const passwordInput =
+    document.getElementById(
+        "password"
+    );
+
+
+const loginButton =
+    document.getElementById(
+        "loginButton"
+    );
+
+
+const pesanLogin =
+    document.getElementById(
+        "pesanLogin"
+    );
+
+
+loginForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const username =
+            usernameInput.value.trim();
+
+
+        const password =
+            passwordInput.value;
+
+
+        loginButton.disabled =
+            true;
+
+
+        loginButton.textContent =
+            "MEMERIKSA...";
+
+
+        pesanLogin.textContent =
+            "";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    API_URL,
+                    {
+
+                        method:
+                            "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                action:
+                                    "loginAdmin",
+
+                                username:
+                                    username,
+
+                                password:
+                                    password
+
+                            })
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            console.log(
+                "HASIL LOGIN:",
+                result
+            );
+
+
+            if (
+                !result.success
+            ) {
+
+                throw new Error(
+                    result.message ||
+                    "Login gagal"
+                );
+
+            }
+
+
+            // -----------------------------------------
+            // SIMPAN TOKEN
+            // -----------------------------------------
+
+            localStorage.setItem(
+                "MY_SOW_ADMIN_TOKEN",
+                result.token
+            );
+
+
+            // -----------------------------------------
+            // MASUK DASHBOARD
+            // -----------------------------------------
+
+            window.location.href =
+                "index.html";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            pesanLogin.textContent =
+                "❌ " +
+                error.message;
+
+
+            pesanLogin.style.color =
+                "#dc2626";
+
+        }
+
+
+        loginButton.disabled =
+            false;
+
+
+        loginButton.textContent =
+            "LOGIN";
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
