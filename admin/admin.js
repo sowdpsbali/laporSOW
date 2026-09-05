@@ -8,7 +8,7 @@
 // =====================================================
 
 const API_URL =
-    "https://script.google.com/macros/s/AKfycbzb7Ur5bfCffsUjYb2_C1CmcMELCzNMD9c_8S4UFLmhouFftxgoMY4nnh_Op8lb7jzepA/exec";
+    "https://script.google.com/macros/s/AKfycbwYxv-EGnZeeoKU7zOeiQSbLuprMfWPub3ICczLS3U1h8AEMG1JlEXcOCq6_06d7WmrWg/exec";
 // =====================================================
 // TAHAP 10
 // TOKEN LOGIN ADMIN
